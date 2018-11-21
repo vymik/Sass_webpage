@@ -1,0 +1,201 @@
+@import "reset";
+
+$red: #fd4335;
+$light-red: lighten(#fd4335, 40%);
+$font: "Space Mono", monospace;
+
+$mobile: 600px;
+
+@mixin mobile {
+    @media all and (max-width: 600px){
+        @content;
+    }
+    
+}
+
+@mixin xl {
+    @media all and (min-width: 1100px){
+        @content;
+    }
+    
+}
+
+body{
+    background-color: $red;
+    font-family: $font;
+    color: white;
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header{
+    display: flex;
+    width: 100%;
+    padding: 30px 30px 0;
+
+    i{
+        font-size: 3rem;
+        color: white;
+        cursor: pointer;
+
+        @include mobile{
+            font-size: 2rem;
+        }
+        
+    }
+    i:hover{
+        color: black;
+    }
+    ul{
+        margin: 0 auto;
+
+        @include mobile{
+            margin:0;
+        }
+
+        li{
+            list-style: none;
+            color: white;
+            font-size: 1.5rem;
+            font-family: $font;
+            cursor: pointer;
+        }
+        li:nth-child(1){
+            text-decoration: underline;
+        }
+        li:hover{
+            color: black;
+        }
+    }   
+}
+
+img{
+    width:100%;
+    opacity: 0.7;
+    filter: grayscale(100%) contrast(200%);
+}
+main{
+    padding:0 5% 5%;
+
+    #hero{
+        width: 100%;
+        position: relative;
+
+        h1{
+            text-transform: uppercase;
+            font-size: 7rem;
+            width: 30%;
+            margin:0;
+            
+            @include mobile{
+                font-size: 4rem;
+                padding: 15% 0;
+            }
+
+            @include xl{
+                font-size: 10rem;
+            }
+        }
+        .hero-img-cont{
+            position: absolute;
+            z-index: -1;
+            top: 3%;
+            margin-left: 20%;
+            background-color: $red;
+
+            p{
+                margin: 0;
+                text-align: right;
+                color: black;
+            }
+            img{
+                @include mobile{
+                    width: 130%;
+                }
+            
+            }
+            .img-comment{
+                text-align: left;
+                font-size: 0.6rem;
+            }
+        }
+        .hero-comment{
+            display: flex;
+            justify-content: flex-end;
+            p{
+                width:40%;
+                font-size: 1.6rem;
+                
+                @include mobile{
+                    width: 100%;
+                }
+                @include xl{
+                    font-size: 3rem;
+                }
+            }
+        }
+        .description{
+            width: 50%;
+            padding:5% 0;
+
+            @include mobile{
+                width: 100%;
+            }
+
+            p{
+                font-size: 0.75rem;
+
+                @include xl {
+                    font-size: 1.1rem;
+                }
+            }
+        }
+    }
+    #people{
+        
+        .columns{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            .column{
+                width: 48%;
+
+                @include mobile{
+                    width: 100%;
+                }
+                h3{
+                    font-size: 1.6rem;
+                }
+            }
+        }
+    }
+}
+
+footer{
+    padding: 5%;
+    justify-content: space-between;
+    position: relative;
+
+    .right-foot input[type=email]{
+        margin: 0 0 0.8rem 0;
+        border: none;
+        border-bottom: 1px solid #fff;
+        border-radius: 0;
+        padding: 0.2rem 0;
+        font-size: 1rem;
+        background: transparent;
+        color: #fff;
+    }
+
+    #vertical{
+        position: absolute;
+        right: 5%;
+        bottom: 10%;
+        transform: rotate(90deg);
+        transform-origin: bottom right;
+    }
+}
